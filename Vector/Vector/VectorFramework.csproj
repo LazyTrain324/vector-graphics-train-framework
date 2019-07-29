@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Geometry\Circle.cs" />
     <Compile Include="Color.cs" />
-    <Compile Include="IDraw.cs" />
+    <Compile Include="IDrawable.cs" />
     <Compile Include="Geometry\Line.cs" />
     <Compile Include="Geometry\Point.cs" />
     <Compile Include="Geometry\Polyline.cs" />

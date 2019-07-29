@@ -28,8 +28,9 @@ namespace VectorFramework
 
         public Vector2 GetNormalized()
         {
-            double x = _x / Magnitude;
-            double y = _y / Magnitude;
+            double magnitude = Magnitude;
+            double x = _x / magnitude;
+            double y = _y / magnitude;
 
             return new Vector2(x, y);
         }
@@ -41,27 +42,23 @@ namespace VectorFramework
             _x /= magnitude;
             _y /= magnitude;
         }
-
+        #region OperatorOverload
         public static Vector2 operator +(Vector2 a, Vector2 b)
         {
-            //use constructor
-            Vector2 vector = new Vector2();
-            vector._x = a._x + a._x;
-            vector._y = a._y + a._y;
-            return vector;
+            return new Vector2(a._x + a._x, a._y + a._y);
         }
 
         public static Vector2 operator -(Vector2 a, Vector2 b)
         {
-            //use constructor
-            Vector2 vector = new Vector2();
-            vector._x = a._x - a._x;
-            vector._y = a._y - a._y;
-            return vector;
+            return new Vector2(a._x - a._x, a._y - a._y);
+        }
+        public static Vector2 operator /(Vector2 a, double b)
+        {
+            return new Vector2(a._x / b, a._y / b);
         }
         public static bool operator ==(Vector2 a, Vector2 b)
         {
-            if(a.X==b.X && a.Y == b.Y)
+            if (a.Equals(b))
             {
                 return true;
             }
@@ -69,19 +66,23 @@ namespace VectorFramework
         }
         public static bool operator !=(Vector2 a, Vector2 b)
         {
-            if (a.X != b.X || a.Y != b.Y)
+            if (a.Equals(b))
             {
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
+        #endregion OperatorOverload
         public override bool Equals(object obj)
         {
             if (obj.GetType() != this.GetType())
                 return false;
 
             Vector2 vector = (Vector2)obj;
-            
+
+            if (_x == vector._x && _y == vector._y) return true;
+
+            return false;
         }
         //overload Equal(), ==, !=, +, -
     }

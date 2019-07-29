@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VectorFramework
 {
-    interface IDraw
+    interface IDrawable
     {
         void Draw();
     }

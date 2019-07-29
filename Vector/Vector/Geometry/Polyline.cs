@@ -9,6 +9,7 @@ namespace VectorFramework.Geometry
     class Polyline : IDrawable
     {
         private Color _color;
+        private Vector2 _center;
         Line[] lines;
         public Polyline()
         {
@@ -30,6 +31,17 @@ namespace VectorFramework.Geometry
                 lines[index] = value;
             }
         }
+
+        public void Move(Vector2 distance)
+        {
+            _center += distance;
+        }
+
+        public void MoveTo(Vector2 newCenter)
+        {
+            _center = newCenter;
+        } 
+
         public void Draw()
         {
 

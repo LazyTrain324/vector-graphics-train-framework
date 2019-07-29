@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VectorFramework.Geometry
 {
-    class Circle : IDrawable
+    class Circle : IDrawable, IMovable
     {
         private Vector2 _center;
         private double _radius;
@@ -17,7 +17,16 @@ namespace VectorFramework.Geometry
             _center = center;
             _radius = radius;
         }
+        
+        public void Move(Vector2 distance)
+        {
+            _center += distance;
+        }
 
+        public void MoveTo(Vector2 newCenter)
+        {
+            _center = newCenter;
+        }
 
         public void Draw()
         {

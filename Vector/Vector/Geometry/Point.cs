@@ -16,6 +16,16 @@ namespace VectorFramework.Geometry
             _center = center;
         }
 
+        public void Move(Vector2 distance)
+        {
+            _center += distance;
+        }
+
+        public void MoveTo(Vector2 newCenter)
+        {
+            _center = newCenter;
+        }
+
         public void Draw()
         {
 

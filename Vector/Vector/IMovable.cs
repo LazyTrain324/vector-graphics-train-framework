@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace VectorFramework
 {
-    public interface IMovable
+    interface IMovable
     {
         void Move(Vector2 distance);
+        void MoveTo(Vector2 newCenter);
     }
 }

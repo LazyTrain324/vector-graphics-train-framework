@@ -24,11 +24,17 @@ namespace VectorFramework.Geometry
         public void Move(Vector2 distance)
         {
             _center += distance;
+            _pointOne += distance;
+            _pointTwo += distance;
         }
 
         public void MoveTo(Vector2 newCenter)
         {
+            Vector2 distance = newCenter - _center;
+
             _center = newCenter;
+            _pointOne += distance;
+            _pointTwo += distance;
         }
 
         public void Draw()

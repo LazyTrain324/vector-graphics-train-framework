@@ -16,7 +16,7 @@ namespace VectorFramework
 
         public double Magnitude
         {
-            //use fields
+            //*** Use fields instead properties
             get { return Math.Sqrt(X * X + Y * Y); }
         }
 
@@ -42,6 +42,7 @@ namespace VectorFramework
             _x /= magnitude;
             _y /= magnitude;
         }
+        //* add empty line
         #region OperatorOverload
         public static Vector2 operator +(Vector2 a, Vector2 b)
         {
@@ -52,10 +53,13 @@ namespace VectorFramework
         {
             return new Vector2(a._x - a._x, a._y - a._y);
         }
+        //* add empty line
+        //*** replace divide operator to multiply
         public static Vector2 operator /(Vector2 a, double b)
         {
             return new Vector2(a._x / b, a._y / b);
         }
+        //* add empty line
         public static bool operator ==(Vector2 a, Vector2 b)
         {
             if (a.Equals(b))
@@ -64,6 +68,7 @@ namespace VectorFramework
             }
             return false;
         }
+        //* add empty line
         public static bool operator !=(Vector2 a, Vector2 b)
         {
             if (a.Equals(b))
@@ -73,6 +78,7 @@ namespace VectorFramework
             return true;
         }
         #endregion OperatorOverload
+        //* add empty line too
         public override bool Equals(object obj)
         {
             if (obj.GetType() != this.GetType())
@@ -84,6 +90,7 @@ namespace VectorFramework
 
             return false;
         }
-        //overload Equal(), ==, !=, +, -
+
+        //*** also add method of Equals with such signature - bool Equals(Vector2 vector)
     }
 }

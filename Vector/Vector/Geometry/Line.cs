@@ -9,6 +9,7 @@ namespace VectorFramework.Geometry
     class Line : IDrawable
     {
         private Color _color;
+        //** rename a, b points like begin, end or something
         private Vector2 _a;
         private Vector2 _b;
         private Vector2 _center;

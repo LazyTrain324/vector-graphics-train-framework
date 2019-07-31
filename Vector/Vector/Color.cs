@@ -19,7 +19,16 @@ namespace VectorFramework
             _b = b;
         }
 
+        //**** You forgot to add Equal, == and != operators
+
         #region StatiColor
+        //*** Replace instantiating new objects like "new Color()" to return private fields, that represents colors
+        // for example:
+        // private static readonly Color pink = new Color(128, 128, 10);
+        // public static Color Pink
+        // {
+        //     get { return pink; }
+        // }
         public static Color Red
         {
             get { return new Color(255, 0, 0); }

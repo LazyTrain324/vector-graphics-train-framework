@@ -9,6 +9,7 @@ namespace VectorFramework.Geometry
     class Rectangle : IDrawable
     {
         private Color _color;
+        //* better rename like lowerLeftPoint and upperRightPoint
         private Vector2 _pointOne;
         private Vector2 _pointTwo;
         private Vector2 _center;
@@ -18,7 +19,7 @@ namespace VectorFramework.Geometry
             _pointOne = pointOne;
             _pointTwo = pointTwo;
             _center = (pointOne + pointTwo) / 2.0;
-
+            //* remove empty line
         }
 
         public void Move(Vector2 distance)

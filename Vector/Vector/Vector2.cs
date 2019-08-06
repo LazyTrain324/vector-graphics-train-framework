@@ -10,20 +10,22 @@ namespace VectorFramework
     {
         private double _x;
         private double _y;
+        public double magnitude;
 
         public double X { get { return _x; } }
         public double Y { get { return _y; } }
 
         public double Magnitude
         {
-            //*** Use fields instead properties
-            get { return Math.Sqrt(X * X + Y * Y); }
+            //*** Use fields instead properties (resolve)
+            get { return magnitude; }
         }
 
         public Vector2(double x, double y)
         {
             _x = x;
             _y = y;
+            magnitude= Math.Sqrt(_x * _x + _y * _y);
         }
 
         public Vector2 GetNormalized()
@@ -42,8 +44,8 @@ namespace VectorFramework
             _x /= magnitude;
             _y /= magnitude;
         }
-        //* add empty line
-        #region OperatorOverload
+        //* add empty line (resolve)
+
         public static Vector2 operator +(Vector2 a, Vector2 b)
         {
             return new Vector2(a._x + a._x, a._y + a._y);
@@ -53,13 +55,15 @@ namespace VectorFramework
         {
             return new Vector2(a._x - a._x, a._y - a._y);
         }
-        //* add empty line
+        //* add empty line (resolve)
         //*** replace divide operator to multiply
+
         public static Vector2 operator /(Vector2 a, double b)
         {
             return new Vector2(a._x / b, a._y / b);
         }
-        //* add empty line
+        //* add empty line (resolve)
+
         public static bool operator ==(Vector2 a, Vector2 b)
         {
             if (a.Equals(b))
@@ -68,7 +72,8 @@ namespace VectorFramework
             }
             return false;
         }
-        //* add empty line
+        //* add empty line (resolve)
+
         public static bool operator !=(Vector2 a, Vector2 b)
         {
             if (a.Equals(b))
@@ -77,8 +82,8 @@ namespace VectorFramework
             }
             return true;
         }
-        #endregion OperatorOverload
-        //* add empty line too
+
+        //* add empty line too (resolve)
         public override bool Equals(object obj)
         {
             if (obj.GetType() != this.GetType())
@@ -86,11 +91,17 @@ namespace VectorFramework
 
             Vector2 vector = (Vector2)obj;
 
-            if (_x == vector._x && _y == vector._y) return true;
+            return Equals(vector);
+        }
+
+        public bool Equals(Vector2 vector)
+        {
+            if (_x == vector._x && _y == vector._y)
+                return true;
 
             return false;
         }
 
-        //*** also add method of Equals with such signature - bool Equals(Vector2 vector)
+        //*** also add method of Equals with such signature - bool Equals(Vector2 vector) (resolve)
     }
 }

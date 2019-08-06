@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace VectorFramework.Geometry
 {
-    class Rectangle : IDrawable
+    class Rectangle : Entity
     {
-        private Color _color;
+        private ColorEntity _color;
         //* better rename like lowerLeftPoint and upperRightPoint
         private Vector2 _pointOne;
         private Vector2 _pointTwo;
@@ -19,17 +19,17 @@ namespace VectorFramework.Geometry
             _pointOne = pointOne;
             _pointTwo = pointTwo;
             _center = (pointOne + pointTwo) / 2.0;
-            //* remove empty line
+            //* remove empty line (resolve)
         }
 
-        public void Move(Vector2 distance)
+        public override void Move(Vector2 distance)
         {
             _center += distance;
             _pointOne += distance;
             _pointTwo += distance;
         }
 
-        public void MoveTo(Vector2 newCenter)
+        public override void MoveTo(Vector2 newCenter)
         {
             Vector2 distance = newCenter - _center;
 
@@ -38,7 +38,7 @@ namespace VectorFramework.Geometry
             _pointTwo += distance;
         }
 
-        public void Draw()
+        public override void Draw()
         {
 
         }

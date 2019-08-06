@@ -6,38 +6,38 @@ using System.Threading.Tasks;
 
 namespace VectorFramework.Geometry
 {
-    class Line : IDrawable
+    class Line : Entity
     {
-        private Color _color;
-        //** rename a, b points like begin, end or something
-        private Vector2 _a;
-        private Vector2 _b;
+        private ColorEntity _color;
+        //** rename a, b points like begin, end or something (resole)
+        private Vector2 _startPoint;
+        private Vector2 _endPoint;
         private Vector2 _center;
 
-        public Line(Vector2 a, Vector2 b)
+        public Line(Vector2 startPoint, Vector2 endPoint)
         {
-            _a = a;
-            _b = b;
-            _center = (a + b) / 2.0;
+            _startPoint = startPoint;
+            _endPoint = endPoint;
+            _center = (startPoint + endPoint) / 2.0;
         }
 
-        public void Move(Vector2 distance)
+        public override void Move(Vector2 distance)
         {
             _center += distance;
-            _a += distance;
-            _b += distance;
+            _startPoint += distance;
+            _endPoint += distance;
         }
 
-        public void MoveTo(Vector2 newCenter)
+        public override void MoveTo(Vector2 newCenter)
         {
             Vector2 distance = newCenter - _center;
 
             _center = newCenter;
-            _a += distance;
-            _b += distance;
+            _startPoint += distance;
+            _endPoint += distance;
         }
 
-        public void Draw()
+        public override void Draw()
         {
 
         }

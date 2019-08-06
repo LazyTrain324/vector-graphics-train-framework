@@ -7,47 +7,50 @@ using System.Threading.Tasks;
 namespace VectorFramework.Geometry
 {
     //***** about implementation this class we need to talk. don't write anything yet
-    class Polyline : IDrawable
+    class Polyline : Entity
     {
-        private Color _color;
+        private ColorEntity _color;
         private Vector2 _center;
-        //* forgot modificator private
-        Line[] lines;
-        //* add empty line
+        //* forgot modificator private (resolve)
+        private List<Vector2> points;
+
+        //* add empty line (resolve)
         public Polyline()
         {
-            //lines = new Line[100]; hmm...
+            points = new List<Vector2>();
         }
-        //* add empty line
-        public Polyline(params Line[] lines)
+
+        //* add empty line (resolve)
+        public Polyline(Vector2[] points)
         {
 
         }
-        //* add empty line
-        public Line this[int index]
+
+        //* add empty line (resolve)
+        public Vector2 this[int index]
         {
             get
             {
-                return lines[index];
+                return points[index];
             }
             set
             {
                 //need to make verification on continuity of polyline ps: i`m suck in english stuff
-                lines[index] = value;
+                points[index] = value;
             }
         }
 
-        public void Move(Vector2 distance)
+        public override void Move(Vector2 distance)
         {
             _center += distance;
         }
 
-        public void MoveTo(Vector2 newCenter)
+        public override void MoveTo(Vector2 newCenter)
         {
             _center = newCenter;
         } 
 
-        public void Draw()
+        public override void Draw()
         {
 
         }

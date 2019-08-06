@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace VectorFramework.Geometry
 {
-    class Circle : IDrawable, IMovable
+    class Circle : Entity
     {
         private Vector2 _center;
         private double _radius;
-        private Color _color;
+        private ColorEntity _color;
 
         public Circle(Vector2 center, double radius)
         {
@@ -18,17 +18,17 @@ namespace VectorFramework.Geometry
             _radius = radius;
         }
         
-        public void Move(Vector2 distance)
+        public override void Move(Vector2 distance)
         {
             _center += distance;
         }
 
-        public void MoveTo(Vector2 newCenter)
+        public override void MoveTo(Vector2 newCenter)
         {
             _center = newCenter;
         }
 
-        public void Draw()
+        public override void Draw()
         {
 
         }

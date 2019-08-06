@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace VectorFramework
 {
-    public struct Color 
+    public struct ColorEntity 
     {
         private byte _r;
         private byte _g;
         private byte _b;
 
-        public Color(byte r, byte g, byte b)
+        public ColorEntity(byte r, byte g, byte b)
         {
             _r = r;
             _g = g;
             _b = b;
         }
 
-        //**** You forgot to add Equal, == and != operators
+        //**** You forgot to add Equal, == and != operators (resolve)
 
         #region StatiColor
         //*** Replace instantiating new objects like "new Color()" to return private fields, that represents colors
@@ -29,42 +29,61 @@ namespace VectorFramework
         // {
         //     get { return pink; }
         // }
-        public static Color Red
-        {
-            get { return new Color(255, 0, 0); }
-        }
-        public static Color Blue
-        {
-            get { return new Color(0, 0, 255); }
-        }
-        public static Color Green
-        {
-            get { return new Color(0, 255, 0); }
-        }
-        public static Color Black
-        {
-            get { return new Color(0, 0, 0); }
-        }
-        public static Color White
-        {
-            get { return new Color(255, 255, 255); }
-        }
-        public static Color Yellow
-        {
-            get { return new Color(255, 255, 0); }
-        }
-        public static Color Aqua
-        {
-            get { return new Color(0, 255, 255); }
-        }
-        public static Color Fuchsia
-        {
-            get { return new Color(255, 0, 255); }
-        }
-        public static Color Silver
-        {
-            get { return new Color(192, 192, 192); }
-        }
+        private static readonly ColorEntity red = new ColorEntity(255, 0, 0);
+        private static readonly ColorEntity blue = new ColorEntity(0, 0, 255);
+        private static readonly ColorEntity green = new ColorEntity(0, 255, 0);
+        private static readonly ColorEntity black = new ColorEntity(0, 0, 0);
+        private static readonly ColorEntity white = new ColorEntity(255, 255, 255);
+        private static readonly ColorEntity yellow = new ColorEntity(255, 255, 0);
+        private static readonly ColorEntity aqua = new ColorEntity(0, 255, 255);
+        private static readonly ColorEntity fuchsia = new ColorEntity(255, 0, 255);
+        private static readonly ColorEntity silver = new ColorEntity(192, 192, 192);
+
+        public static ColorEntity Red => red;
+        public static ColorEntity Blue => blue;
+        public static ColorEntity Green => green;
+        public static ColorEntity Black => black;
+        public static ColorEntity White => white;
+        public static ColorEntity Yellow => yellow;
+        public static ColorEntity Aqua => aqua;
+        public static ColorEntity Fuchsia => fuchsia;
+        public static ColorEntity Silver => silver;
         #endregion StatiColor
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() != this.GetType())
+                return false;
+
+            ColorEntity color = (ColorEntity)obj;
+
+            return Equals(color);
+        }
+
+        public bool Equals(ColorEntity color)
+        {
+            if(_r == color._r && _g == color._g && _b == color._b) return true;
+
+            return false;
+        }
+
+        public static bool operator ==(ColorEntity color1, ColorEntity color2)
+        {
+            if (color1.Equals(color2))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool operator !=(ColorEntity color1, ColorEntity color2)
+        {
+            if (color1.Equals(color2))
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

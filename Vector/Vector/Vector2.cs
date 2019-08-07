@@ -18,6 +18,7 @@ namespace VectorFramework
         public double Magnitude
         {
             //*** Use fields instead properties (resolve)
+            //***** I mean not it. You needed replace X to _x and so on. But you dont need cached magnitude value.
             get { return magnitude; }
         }
 
@@ -44,7 +45,6 @@ namespace VectorFramework
             _x /= magnitude;
             _y /= magnitude;
         }
-        //* add empty line (resolve)
 
         public static Vector2 operator +(Vector2 a, Vector2 b)
         {
@@ -55,14 +55,12 @@ namespace VectorFramework
         {
             return new Vector2(a._x - a._x, a._y - a._y);
         }
-        //* add empty line (resolve)
-        //*** replace divide operator to multiply
+        //*** replace divide operator to multiply. or add multiply too!!!
 
         public static Vector2 operator /(Vector2 a, double b)
         {
             return new Vector2(a._x / b, a._y / b);
         }
-        //* add empty line (resolve)
 
         public static bool operator ==(Vector2 a, Vector2 b)
         {
@@ -72,7 +70,6 @@ namespace VectorFramework
             }
             return false;
         }
-        //* add empty line (resolve)
 
         public static bool operator !=(Vector2 a, Vector2 b)
         {
@@ -83,7 +80,6 @@ namespace VectorFramework
             return true;
         }
 
-        //* add empty line too (resolve)
         public override bool Equals(object obj)
         {
             if (obj.GetType() != this.GetType())
@@ -101,7 +97,5 @@ namespace VectorFramework
 
             return false;
         }
-
-        //*** also add method of Equals with such signature - bool Equals(Vector2 vector) (resolve)
     }
 }

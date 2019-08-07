@@ -11,22 +11,18 @@ namespace VectorFramework.Geometry
     {
         private ColorEntity _color;
         private Vector2 _center;
-        //* forgot modificator private (resolve)
         private List<Vector2> points;
 
-        //* add empty line (resolve)
         public Polyline()
         {
             points = new List<Vector2>();
         }
 
-        //* add empty line (resolve)
         public Polyline(Vector2[] points)
         {
 
         }
 
-        //* add empty line (resolve)
         public Vector2 this[int index]
         {
             get

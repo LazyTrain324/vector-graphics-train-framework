@@ -19,16 +19,7 @@ namespace VectorFramework
             _b = b;
         }
 
-        //**** You forgot to add Equal, == and != operators (resolve)
-
         #region StatiColor
-        //*** Replace instantiating new objects like "new Color()" to return private fields, that represents colors
-        // for example:
-        // private static readonly Color pink = new Color(128, 128, 10);
-        // public static Color Pink
-        // {
-        //     get { return pink; }
-        // }
         private static readonly ColorEntity red = new ColorEntity(255, 0, 0);
         private static readonly ColorEntity blue = new ColorEntity(0, 0, 255);
         private static readonly ColorEntity green = new ColorEntity(0, 255, 0);
@@ -49,7 +40,6 @@ namespace VectorFramework
         public static ColorEntity Fuchsia => fuchsia;
         public static ColorEntity Silver => silver;
         #endregion StatiColor
-
 
         public override bool Equals(object obj)
         {

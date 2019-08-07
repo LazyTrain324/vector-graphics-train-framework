@@ -9,7 +9,6 @@ namespace VectorFramework.Geometry
     class Line : Entity
     {
         private ColorEntity _color;
-        //** rename a, b points like begin, end or something (resole)
         private Vector2 _startPoint;
         private Vector2 _endPoint;
         private Vector2 _center;
